@@ -1,0 +1,24 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "ctview-backend",
+      "image": "YOUR_ECR_REPO_URI:latest",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 8000,
+          "containerPort": 8000
+        }
+      ],
+      "environment": [
+        {"name": "DB_HOST", "value": "YOUR_RDS_ENDPOINT"},
+        {"name": "DB_PORT", "value": "5432"},
+        {"name": "DB_USER", "value": "ctview_user"},
+        {"name": "DB_PASS", "value": "ctview_password"},
+        {"name": "DB_NAME", "value": "ctview"}
+      ]
+    }
+  ]
+}
